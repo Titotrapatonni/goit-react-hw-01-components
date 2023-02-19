@@ -1,18 +1,29 @@
 import PropTypes from 'prop-types';
+import { Friends, List, Status, Item } from './FriendList.styled';
+import { GrStatusGoodSmall } from 'react-icons/gr';
 
 export const FriendList = ({ friends }) => {
   return (
-    <ul className="friend-list">
-      {friends.map(({ id, isOnline, avatar, name }) => {
-        return (
-          <li className="item" key={id}>
-            <span className="status">{isOnline ? 'online' : 'offline'}</span>
-            <img className="avatar" src={avatar} alt="User avatar" width="48" />
-            <p className="name">{name}</p>
-          </li>
-        );
-      })}
-    </ul>
+    <Friends>
+      <List>
+        {friends.map(({ id, isOnline, avatar, name }) => {
+          return (
+            <Item className="item" key={id}>
+              <Status isOnline={isOnline}>
+                <GrStatusGoodSmall />
+              </Status>
+              <img
+                className="avatar"
+                src={avatar}
+                alt="User avatar"
+                width="48"
+              />
+              <h3 className="name">{name}</h3>
+            </Item>
+          );
+        })}
+      </List>
+    </Friends>
   );
 };
 
