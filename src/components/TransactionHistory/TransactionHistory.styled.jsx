@@ -28,5 +28,5 @@ export const TableData = styled.td`
   border: 1px solid black;
 `;
 export const TableHead = styled.thead`
-  background-color: #a0fafd;
+  background-color: #94eaed;
 `;
